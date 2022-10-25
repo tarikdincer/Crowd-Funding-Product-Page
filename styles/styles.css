@@ -166,6 +166,7 @@
     justify-content: center;
     align-items: center;
     gap: .6rem;
+    width: 100%;
   }
 
   .btn{
@@ -175,6 +176,11 @@
     border: none;
     color: #ffffff;
     width: 14rem;
+    cursor: pointer;
+  }
+
+  .btn:hover{
+    background-color: var(--Dark-Cyan);
   }
 
   .bookmark-btn{
@@ -184,6 +190,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 2rem;
+    cursor: pointer;
   }
 
   .bookmark-btn img{
@@ -193,6 +200,7 @@
 
   .bookmark-btn span{
     color: var(--Dark-Gray);
+    padding: 0 1rem;
     display: none;
   }
 
@@ -218,7 +226,7 @@
   }
 
   .money-bar{
-    width: 18rem;
+    width: 100%;
     height: .75rem;
     background-color: hsl(0, 0%, 88%);;
     border-radius: .3rem;
@@ -227,7 +235,7 @@
   }
 
   .filled{
-    width: 15rem;
+    width: 85%;
     height: .75rem;
     background-color: var(--Moderate-Cyan);
     border-radius: .3rem;
@@ -307,7 +315,7 @@
   }
 
   .reward-card:last-of-type{
-    opacity: 0.75;
+    opacity: 0.65;
   }
 
   /* Select Modal Design */
@@ -408,6 +416,7 @@
     width: 8rem;
     grid-column: 2/3;
     grid-row: 3;
+    justify-self: center;
   }
 
   .card-bottom input[type="number"]{
@@ -417,8 +426,13 @@
     padding: 0.5rem;
     grid-column: 1/2;
     grid-row: 3;
+    justify-self: center;
     align-self: center;
     text-align: center;
+  }
+
+  .card-bottom-divider{
+    display: none;
   }
 
   .modal-card .stock{
@@ -450,6 +464,7 @@
     gap: 2rem;
     position: fixed;
     top: 20%;
+    z-index: 1000;
     display: none;
   }
 
@@ -460,6 +475,14 @@
 
   .ty-card .btn{
     width: 8rem;
+  }
+
+  .btn[disabled="disabled"]{
+    cursor: default;
+  }
+
+  .modal-card .card-header h3:hover{
+    color: var(--Moderate-Cyan);
   }
 
   /* Darken Background When Modal Opened */
@@ -479,4 +502,173 @@
 
     /* z-index must be below .modal and above everything else  */
     z-index: 1;
-}
+  }
+
+/* Media Queries */
+  @media only screen and (min-width: 720px) {
+    /* Header */
+    header{
+      padding: 3rem 10%;
+      height: 26rem;
+      background-image: url("../images/image-hero-desktop.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    header .menu-icon{
+      display: none;
+    }
+
+    header nav{
+      display: block;
+      background: none;
+      border: none;
+      box-shadow: none;
+      position: static;
+    }
+
+    header nav ul{
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+    }
+
+    header nav ul li{
+      padding: 0;
+      border-bottom: none;
+    }
+
+    header nav a{
+      color: #ffffff;
+      font-weight: 400;
+    }
+
+    /* Project Header */
+
+    section{
+      width: 50%;
+      top: -6rem;
+      padding: 3rem 1.25rem;
+    }
+
+    .project-header h2 span{
+      display: inline;
+    }
+
+    .project-btns{
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .bookmark-btn span{
+      display: block;
+    }
+
+    .btn{
+      width: 12rem;
+    }
+
+    /* Reward Card */
+
+    .reward-card h3{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .reward-card footer{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .card-header h3{
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .modal-card{
+      position: relative;
+      padding: 3rem 2rem;
+    }
+
+    .modal-card .stock{
+      position: absolute;
+      top: 14%;
+      right: 5%;
+    }
+
+    .modal{
+      padding: 4rem 2rem;
+      top: -15rem;
+    }
+
+    .modal-header img{
+      position: relative;
+      top: -2rem;
+      cursor: pointer;
+    }
+
+    .modal-card .card-content{
+      padding: 0 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .ty-card{
+      width: 25rem;
+    }
+    
+  }
+
+  @media only screen and (min-width: 1200px){
+    .project-stats{
+      display: grid;
+      grid-template-columns: minmax(0,3fr) 1fr minmax(0,3fr) 1fr minmax(0,3fr);
+      gap: 2rem;
+      padding: 3rem 2.5rem;
+      text-align: left;
+    }
+
+    .seperator{
+      margin: 0 auto;
+      width: 0.05rem;
+      height: 4rem;
+      background-color: var(--Dark-Gray);
+    }
+
+    .money-bar{
+      grid-row: 2;
+      grid-column: span 5;
+    }
+
+    .project-main{
+      padding: 3rem 6rem;
+      gap: 2rem;
+    }
+
+    .card-bottom{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding-top: 2rem;
+    }
+
+    .card-bottom p{
+      position: absolute;
+      left: 0%;
+    }
+
+    .card-bottom .btn{
+      position: absolute;
+      right: 0%;
+    }
+
+    .card-bottom input[type="number"]{
+      position: absolute;
+      right: 28%;
+    }
+
+    .card-bottom{
+      display: none;
+    }
+
+  }
