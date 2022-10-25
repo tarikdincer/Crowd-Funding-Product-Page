@@ -51,7 +51,7 @@
           A beautifully handcrafted monitor stand to reduce neck and eye strain.
         </p>
         <div class="project-btns">
-          <button class="btn">Back this project</button>
+          <button class="btn back-project-btn">Back this project</button>
           <button class="bookmark-btn">
             <img src="./images/icon-bookmark.svg" alt="bookmark icon" />
             <span>Bookmark</span>
@@ -100,8 +100,8 @@
             Backer member list.
           </p>
           <footer>
-            <p class="stock">101<span>left</span></p>
-            <button class="btn">Select Reward</button>
+            <p class="stock" stock-product="bamboo-stand">101<span>left</span></p>
+            <button class="btn reward-btn" reward-type="bamboo-stand">Select Reward</button>
           </footer>
         </div>
         <div class="reward-card">
@@ -112,8 +112,8 @@
             included.
           </p>
           <footer>
-            <p class="stock">64<span>left</span></p>
-            <button class="btn">Select Reward</button>
+            <p class="stock" stock-product="black-edition-stand">64<span>left</span></p>
+            <button class="btn reward-btn" reward-type="black-edition-stand">Select Reward</button>
           </footer>
         </div>
         <div class="reward-card">
@@ -124,8 +124,8 @@
             Shipping is included.
           </p>
           <footer>
-            <p class="stock">0<span>left</span></p>
-            <button class="btn" disabled="disabled">Select Reward</button>
+            <p class="stock" stock-product="mahogany-special-edition">0<span>left</span></p>
+            <button class="btn reward-btn" reward-type="mahogany-special-edition" disabled="disabled">Select Reward</button>
           </footer>
         </div>
       </section>
@@ -135,7 +135,7 @@
         <!-- Select Modal Header -->
         <div class="modal-header">
           <h2>Back this project</h2>
-          <img src="./images/icon-close-modal.svg" aria-hidden="true" />
+          <img class="modal-close" src="./images/icon-close-modal.svg" aria-hidden="true" />
         </div>
         <p>
           Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
@@ -143,9 +143,9 @@
         </p>
 
         <!-- Modal Card -->
-        <div class="modal-card">
+        <div class="modal-card" id="no-reward">
           <div class="card-header">
-            <input type="radio" name="modal" id="no-reward" />
+            <input type="radio" name="modal" reward-type="no-reward"/>
             <h3>Pledge with no reward<span></span></h3>
           </div>
 
@@ -158,17 +158,17 @@
           </div>
           
           <div class="card-bottom-divider"></div>
-          <div class="card-bottom">
+          <form class="card-bottom" pledge="no-reward">
             <p>Enter your pledge</p>
             <input class="pledge-input" type="number" />
-            <button class="btn" reward-type="no-reward">Continue</button>
-          </div>
+            <button type="submit" class="btn modal-btn" reward-type="no-reward">Continue</button>
+          </form>
         </div>
 
         <!-- Modal Card -->
-        <div class="modal-card">
+        <div class="modal-card" id="bamboo-stand">
           <div class="card-header">
-            <input type="radio" name="modal" id="bamboo-stand" />
+            <input type="radio" name="modal" reward-type="bamboo-stand"/>
             <h3>Bamboo Stand<span>Pledge $25 or more</span></h3>
           </div>
 
@@ -178,21 +178,21 @@
               us launch our promotional campaign, and you’ll be added to a
               special Backer member list.
             </p>
-            <p class="stock">101<span>left</span></p>
+            <p class="stock" stock-product="bamboo-stand">101<span>left</span></p>
           </div>
           
           <div class="card-bottom-divider"></div>
-          <div class="card-bottom">
+          <form class="card-bottom" pledge="bamboo-stand">
             <p>Enter your pledge</p>
-            <input class="pledge-input" type="number" />
-            <button class="btn" reward-type="bamboo-stand">Continue</button>
-          </div>
+            <input class="pledge-input" type="number"/>
+            <button type="submit" class="btn modal-btn" reward-type="bamboo-stand">Continue</button>
+          </form>
         </div>
 
         <!-- Modal Card -->
-        <div class="modal-card">
+        <div class="modal-card" id="black-edition-stand">
           <div class="card-header">
-            <input type="radio" name="modal" id="black-edition-stand" />
+            <input type="radio" name="modal" reward-type="black-edition-stand"/>
             <h3>Black Edition Stand<span>Pledge $75 or more</span></h3>
           </div>
 
@@ -202,26 +202,25 @@
               thank you. You’ll be added to our Backer member list. Shipping is
               included.
             </p>
-            <p class="stock">64<span>left</span></p>
+            <p class="stock" stock-product="black-edition-stand">64<span>left</span></p>
           </div>
 
           <div class="card-bottom-divider"></div>
-          <div class="card-bottom">
+          <form class="card-bottom" pledge="black-edition-stand">
             <p>Enter your pledge</p>
             <input class="pledge-input" type="number" />
-            <button class="btn" reward-type="black-edition-stand">
+            <button type="submit" class="btn modal-btn" reward-type="black-edition-stand">
               Continue
             </button>
-          </div>
+          </form>
         </div>
 
         <!-- Modal Card -->
-        <div class="modal-card">
+        <div class="modal-card" id="mahogany-special-edition">
           <div class="card-header">
             <input
               type="radio"
               name="modal"
-              id="mahogany-special-edition"
               disabled="disabled"
             />
             <h3>Mahogany Special Edition<span>Pledge $200 or more</span></h3>
@@ -233,17 +232,17 @@
               a personal thank you. You’ll be added to our Backer member list.
               Shipping is included.
             </p>
-            <p class="stock">0<span>left</span></p>
+            <p class="stock" stock-product="mahogany-special-edition">0<span>left</span></p>
           </div>
           
-          <div class="card-bottom-divider"></div>
+          <formit class="card-bottom-divider"></div>
           <div class="card-bottom">
             <p>Enter your pledge</p>
-            <input class="pledge-input" type="number" />
-            <button class="btn" reward-type="mahogany-special-edition" disabled="disabled">
+            <input type="submit" class="pledge-input" type="number" />
+            <button class="btn modal-btn" reward-type="mahogany-special-edition" disabled="disabled">
               Continue
             </button>
-          </div>
+          </formit>
         </div>
       </section>
 

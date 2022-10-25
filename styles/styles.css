@@ -87,11 +87,14 @@
 
   header nav{
     display: none;
-    position: relative;
-    top: 30px;
     background-color: #ffffff;
     border-radius: 0.5rem;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+    position: absolute;
+    top: 4rem;
+    z-index: 1000;
+    width: 80%;
+    left: 2rem;
   }
 
   header nav ul li{
@@ -314,7 +317,7 @@
     padding: 1rem;
   }
 
-  .reward-card:last-of-type{
+  .reward-card .btn[disabled="disabled"]{
     opacity: 0.65;
   }
 
@@ -350,6 +353,7 @@
   .modal-header img{
     width: 15px;
     height: 15px;
+    cursor: pointer;
   }
 
   .modal p{
@@ -485,6 +489,18 @@
     color: var(--Moderate-Cyan);
   }
 
+  .selected > .card-bottom {
+    display: grid;
+  }
+
+  .selected > .card-bottom-divider {
+    display: grid;
+  }
+
+  .selected{
+    border: 2px solid var(--Moderate-Cyan);
+  }
+
   /* Darken Background When Modal Opened */
 
   .darken-background {
@@ -525,6 +541,7 @@
       border: none;
       box-shadow: none;
       position: static;
+      width: auto;
     }
 
     header nav ul{
@@ -585,33 +602,6 @@
       gap: 1rem;
     }
 
-    .modal-card{
-      position: relative;
-      padding: 3rem 2rem;
-    }
-
-    .modal-card .stock{
-      position: absolute;
-      top: 14%;
-      right: 5%;
-    }
-
-    .modal{
-      padding: 4rem 2rem;
-      top: -15rem;
-    }
-
-    .modal-header img{
-      position: relative;
-      top: -2rem;
-      cursor: pointer;
-    }
-
-    .modal-card .card-content{
-      padding: 0 2rem;
-      margin-bottom: 1rem;
-    }
-
     .ty-card{
       width: 25rem;
     }
@@ -642,6 +632,33 @@
     .project-main{
       padding: 3rem 6rem;
       gap: 2rem;
+    }
+
+    .modal-card{
+      position: relative;
+      padding: 3rem 2rem;
+    }
+
+    .modal-card .stock{
+      position: absolute;
+      top: 14%;
+      right: 5%;
+    }
+
+    .modal{
+      padding: 4rem 2rem;
+      top: -15rem;
+    }
+
+    .modal-header img{
+      position: relative;
+      top: -2rem;
+      cursor: pointer;
+    }
+
+    .modal-card .card-content{
+      padding: 0 2rem;
+      margin-bottom: 1rem;
     }
 
     .card-bottom{
