@@ -10,10 +10,10 @@ const closeModalIcon = document.querySelector(".modal-close");
 const darkBg = document.querySelector(".darken-background");
 const totalBackers = document.querySelector("#backers-stat");
 const bambooStocks = document.querySelectorAll(
-  '.stock[stock-product="bamboo-stand"]'
+  '.stock[data-stock-product="bamboo-stand"]'
 );
 const blackEditionStocks = document.querySelectorAll(
-  '.stock[stock-product="black-edition-stand"]'
+  '.stock[data-stock-product="black-edition-stand"]'
 );
 const rewardBtns = document.querySelectorAll(".reward-btn");
 const noRewardModalCard = document.querySelector("#no-reward");
@@ -59,12 +59,14 @@ const modalOpenWithReward = (e) => {
   modal.style.display = "flex";
   darkBg.style.display = "block";
 
-  if (e.target.getAttribute("reward-type") === "bamboo-stand") {
+  if (e.target.getAttribute("data-reward-type") === "bamboo-stand") {
     bambooModalCard.classList.add("selected");
     bambooInput.checked = true;
     noRewardModalCard.classList.remove("selected");
     blackEditionModalCard.classList.remove("selected");
-  } else if (e.target.getAttribute("reward-type") === "black-edition-stand") {
+  } else if (
+    e.target.getAttribute("data-reward-type") === "black-edition-stand"
+  ) {
     blackEditionModalCard.classList.add("selected");
     blackEditionInput.checked = true;
     noRewardModalCard.classList.remove("selected");
@@ -75,15 +77,17 @@ const modalOpenWithReward = (e) => {
 const inputChanged = (e) => {
   let el;
 
-  if (e.target.getAttribute("reward-type") === "no-reward") {
+  if (e.target.getAttribute("data-reward-type") === "no-reward") {
     noRewardModalCard.classList.add("selected");
     bambooModalCard.classList.remove("selected");
     blackEditionModalCard.classList.remove("selected");
-  } else if (e.target.getAttribute("reward-type") === "bamboo-stand") {
+  } else if (e.target.getAttribute("data-reward-type") === "bamboo-stand") {
     bambooModalCard.classList.add("selected");
     noRewardModalCard.classList.remove("selected");
     blackEditionModalCard.classList.remove("selected");
-  } else if (e.target.getAttribute("reward-type") === "black-edition-stand") {
+  } else if (
+    e.target.getAttribute("data-reward-type") === "black-edition-stand"
+  ) {
     blackEditionModalCard.classList.add("selected");
     noRewardModalCard.classList.remove("selected");
     bambooModalCard.classList.remove("selected");
@@ -119,12 +123,12 @@ const submitPledge = (e) => {
   totalBackers.childNodes[0].textContent =
     Number(totalBackers.childNodes[0].textContent.replace(",", "")) + 1;
 
-  if (e.target.getAttribute("pledge") === "bamboo-stand") {
+  if (e.target.getAttribute("data-pledge") === "bamboo-stand") {
     bambooStocks.forEach((stock) => {
       stock.childNodes[0].textContent =
         Number(stock.childNodes[0].textContent) - 1;
     });
-  } else if (e.target.getAttribute("pledge") === "black-edition-stand") {
+  } else if (e.target.getAttribute("data-pledge") === "black-edition-stand") {
     blackEditionStocks.forEach((stock) => {
       stock.childNodes[0].textContent =
         Number(stock.childNodes[0].textContent) - 1;
